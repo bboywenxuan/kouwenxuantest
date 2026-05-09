@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理后台 - 中科之家</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useCallback } = React;
+
+        const LoginScreen = ({ onLogin, error }) => {
+            const [key, setKey] = useState('');
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                onLogin(key);
+            };
+
+            return (
+                <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4">
+                    <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
+                        <div className="text-center mb-8">
+                            <h1 className="text-2xl font-bold text-slate-900">中科之家</h1>
+                            <p className="text-slate-500 mt-2">管理后台</p>
+                        </div>
+                        <form onSubmit={handleSubmit} className="space-y-4">
+                            <div>
+                                <label className="block text-sm font-medium text-slate-700 mb-1">管理密钥</label>
+                                <input
+                                    type="password"
+                                    value={key}
+                                    onChange={e => setKey(e.target.value)}
+                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none"
+                                    placeholder="请输入管理密钥"
+                                    autoFocus
+                                />
+                            </div>
+                            {error && (
+                                <div className="p-3 bg-red-50 text-red-700 rounded-xl text-sm border border-red-200">
+                                    {error}
+                                </div>
+                            )}
+                            <button type="submit" className="w-full py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors">
+                                登录
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            );
+        };
+
+        const Dashboard = ({ apiKey, onLogout }) => {
+            const [leads, setLeads] = useState([]);
+            const [loading, setLoading] = useState(true);
+            const [error, setError] = useState('');
+            const [selectedLead, setSelectedLead] = useState(null);
+            const [deleteStatus, setDeleteStatus] = useState('');
+
+            const fetchLeads = useCallback(async () => {
+                setLoading(true);
+                setError('');
+                try {
+                    const res = await fetch(`/api/franchise?key=${encodeURIComponent(apiKey)}`);
+                    if (!res.ok) {
+                        const data = await res.json();
+                        throw new Error(data.error || '请求失败');
+                    }
+                    const data = await res.json();
+                    setLeads(data);
+                } catch (e) {
+                    setError(e.message);
+                } finally {
+                    setLoading(false);
+                }
+            }, [apiKey]);
+
+            useEffect(() => {
+                fetchLeads();
+            }, [fetchLeads]);
+
+            const handleDelete = async (id) => {
+                if (!confirm('确定删除这条记录吗？此操作不可撤销。')) return;
+                setDeleteStatus('deleting');
+                try {
+                    const res = await fetch(`/api/franchise/${id}?key=${encodeURIComponent(apiKey)}`, {
+                        method: 'DELETE'
+                    });
+                    if (!res.ok) {
+                        const data = await res.json();
+                        throw new Error(data.error || '删除失败');
+                    }
+                    setLeads(leads.filter(l => l.id !== id));
+                    setSelectedLead(null);
+                    setDeleteStatus('success');
+                    setTimeout(() => setDeleteStatus(''), 2000);
+                } catch (e) {
+                    setDeleteStatus('error');
+                    alert(e.message);
+                }
+            };
+
+            const formatDate = (d) => {
+                const date = new Date(d);
+                return date.toLocaleString('zh-CN', {
+                    year: 'numeric', month: '2-digit', day: '2-digit',
+                    hour: '2-digit', minute: '2-digit'
+                });
+            };
+
+            return (
+                <div className="min-h-screen bg-slate-100">
+                    <nav className="bg-white shadow-sm border-b border-slate-200">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+                            <div className="flex items-center gap-3">
+                                <h1 className="text-xl font-bold text-slate-900">中科之家</h1>
+                                <span className="text-sm text-slate-400">|</span>
+                                <span className="text-sm text-slate-600">管理后台</span>
+                            </div>
+                            <div className="flex items-center gap-4">
+                                <button onClick={fetchLeads} className="text-sm text-blue-600 hover:text-blue-800 font-medium">
+                                    刷新数据
+                                </button>
+                                <button onClick={onLogout} className="text-sm text-slate-500 hover:text-slate-700">
+                                    退出登录
+                                </button>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                        <div className="flex justify-between items-center mb-6">
+                            <div>
+                                <h2 className="text-2xl font-bold text-slate-900">加盟线索管理</h2>
+                                <p className="text-sm text-slate-500 mt-1">共 {leads.length} 条记录</p>
+                            </div>
+                            {deleteStatus === 'success' && (
+                                <div className="px-4 py-2 bg-green-50 text-green-700 rounded-xl text-sm border border-green-200">
+                                    已删除
+                                </div>
+                            )}
+                        </div>
+
+                        {loading && (
+                            <div className="text-center py-16 text-slate-400">加载中...</div>
+                        )}
+
+                        {error && (
+                            <div className="p-4 bg-red-50 text-red-700 rounded-xl text-sm border border-red-200 mb-6">
+                                {error}
+                                <button onClick={fetchLeads} className="ml-4 underline">重试</button>
+                            </div>
+                        )}
+
+                        {!loading && !error && leads.length === 0 && (
+                            <div className="text-center py-16 bg-white rounded-2xl border border-slate-200">
+                                <p className="text-slate-400 text-lg">暂无加盟线索</p>
+                            </div>
+                        )}
+
+                        {!loading && !error && leads.length > 0 && (
+                            <div className="flex gap-6">
+                                {/* 列表 */}
+                                <div className="flex-1">
+                                    <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                                        <div className="overflow-x-auto">
+                                            <table className="w-full">
+                                                <thead>
+                                                    <tr className="bg-slate-50 text-left text-sm text-slate-500">
+                                                        <th className="px-6 py-3 font-medium">ID</th>
+                                                        <th className="px-6 py-3 font-medium">姓名</th>
+                                                        <th className="px-6 py-3 font-medium">电话</th>
+                                                        <th className="px-6 py-3 font-medium">城市</th>
+                                                        <th className="px-6 py-3 font-medium">提交时间</th>
+                                                        <th className="px-6 py-3 font-medium">操作</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody className="divide-y divide-slate-100">
+                                                    {leads.map(lead => (
+                                                        <tr
+                                                            key={lead.id}
+                                                            className={`hover:bg-slate-50 transition-colors cursor-pointer ${selectedLead?.id === lead.id ? 'bg-blue-50' : ''}`}
+                                                            onClick={() => setSelectedLead(selectedLead?.id === lead.id ? null : lead)}
+                                                        >
+                                                            <td className="px-6 py-4 text-sm text-slate-400">{lead.id}</td>
+                                                            <td className="px-6 py-4 text-sm font-medium text-slate-900">{lead.name}</td>
+                                                            <td className="px-6 py-4 text-sm text-slate-600">{lead.phone}</td>
+                                                            <td className="px-6 py-4 text-sm text-slate-600">{lead.city}</td>
+                                                            <td className="px-6 py-4 text-sm text-slate-400">{formatDate(lead.created_at)}</td>
+                                                            <td className="px-6 py-4">
+                                                                <button
+                                                                    onClick={(e) => { e.stopPropagation(); handleDelete(lead.id); }}
+                                                                    className="text-xs text-red-500 hover:text-red-700 font-medium"
+                                                                >
+                                                                    删除
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* 详情面板 */}
+                                {selectedLead && (
+                                    <div className="w-80 flex-shrink-0">
+                                        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sticky top-24">
+                                            <div className="flex justify-between items-start mb-4">
+                                                <h3 className="font-bold text-slate-900">线索详情</h3>
+                                                <button
+                                                    onClick={() => setSelectedLead(null)}
+                                                    className="text-slate-300 hover:text-slate-500"
+                                                >
+                                                    ✕
+                                                </button>
+                                            </div>
+                                            <dl className="space-y-4">
+                                                <div>
+                                                    <dt className="text-xs text-slate-400 mb-1">编号</dt>
+                                                    <dd className="text-sm text-slate-900">#{selectedLead.id}</dd>
+                                                </div>
+                                                <div>
+                                                    <dt className="text-xs text-slate-400 mb-1">姓名</dt>
+                                                    <dd className="text-sm font-medium text-slate-900">{selectedLead.name}</dd>
+                                                </div>
+                                                <div>
+                                                    <dt className="text-xs text-slate-400 mb-1">电话</dt>
+                                                    <dd className="text-sm text-slate-900">
+                                                        <a href={`tel:${selectedLead.phone}`} className="text-blue-600 hover:underline">{selectedLead.phone}</a>
+                                                    </dd>
+                                                </div>
+                                                <div>
+                                                    <dt className="text-xs text-slate-400 mb-1">意向城市</dt>
+                                                    <dd className="text-sm text-slate-900">{selectedLead.city}</dd>
+                                                </div>
+                                                <div>
+                                                    <dt className="text-xs text-slate-400 mb-1">提交时间</dt>
+                                                    <dd className="text-sm text-slate-900">{formatDate(selectedLead.created_at)}</dd>
+                                                </div>
+                                            </dl>
+                                            <button
+                                                onClick={() => handleDelete(selectedLead.id)}
+                                                className="w-full mt-6 py-2 bg-red-50 text-red-600 rounded-xl text-sm font-medium hover:bg-red-100 transition-colors"
+                                            >
+                                                删除此线索
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            );
+        };
+
+        const AdminApp = () => {
+            const [apiKey, setApiKey] = useState(() => sessionStorage.getItem('admin_key') || '');
+            const [loginError, setLoginError] = useState('');
+
+            const handleLogin = async (key) => {
+                setLoginError('');
+                if (!key.trim()) {
+                    setLoginError('请输入管理密钥');
+                    return;
+                }
+                // 验证密钥：带 key 参数请求 API
+                try {
+                    const res = await fetch(`/api/franchise?key=${encodeURIComponent(key.trim())}`);
+                    if (res.status === 401) {
+                        setLoginError('密钥错误，请重试');
+                        return;
+                    }
+                    if (!res.ok) throw new Error('请求失败');
+                    sessionStorage.setItem('admin_key', key.trim());
+                    setApiKey(key.trim());
+                } catch (e) {
+                    setLoginError('网络错误，请稍后重试');
+                }
+            };
+
+            const handleLogout = () => {
+                sessionStorage.removeItem('admin_key');
+                setApiKey('');
+                setLoginError('');
+            };
+
+            if (!apiKey) {
+                return <LoginScreen onLogin={handleLogin} error={loginError} />;
+            }
+
+            return <Dashboard apiKey={apiKey} onLogout={handleLogout} />;
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<AdminApp />);
+    </script>
+</body>
+</html>

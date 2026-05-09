@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻详情 - 中科之家</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="/images/qiye.png">
+    <style>
+        .prose p { margin-bottom: 1.5rem; line-height: 1.8; }
+        .prose p:first-child { text-indent: 2em; }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const newsData = {
+            1: {
+                title: '中科之家YP-9项目启动大会圆满召开',
+                date: '2018-12-10',
+                image: 'images/news/news-01.jpg',
+                content: `2018年12月10日，中科之家YP-9项目启动大会在上海隆重举行。本次大会汇聚了中科院专家团队、行业合作伙伴及媒体代表共计200余人，共同见证这一重要时刻。
+
+大会伊始，中科之家董事长张斌先生发表致辞，他表示："YP-9项目是我们多年科研成果的结晶，承载着让中国青少年拥有更好视力和身高的使命。今天，我们正式开启这一伟大征程。"
+
+中科院上海生命科学研究院季皖中教授就YP-9项目的技术背景进行了详细介绍。他指出，该项目融合了光学训练与生物基因技术，是国内首个将视力保护与身高促进相结合的创新项目。
+
+启动大会上，中科之家与多家战略合作伙伴签署了合作协议，共同推进青少年健康事业的发展。与会嘉宾还参观了YP-9产品展示区，亲身体验了产品的卓越效果。
+
+本次启动大会的成功召开，标志着中科之家在青少年健康管理领域迈出了坚实的一步，也为后续的市场推广奠定了坚实基础。`
+            },
+            2: {
+                title: '中科院专家团队深入研讨YP-9核心技术',
+                date: '2018-12-10',
+                image: 'images/news/news-02.jpg',
+                content: `在YP-9项目启动大会期间，中科院专家团队举行了核心技术研讨会。来自上海生命科学研究院、海洋生物医药研究院的多位专家齐聚一堂，就YP-9项目的技术路线和优化方向进行了深入探讨。
+
+研讨会由首席视觉科学家季皖中教授主持，他首先回顾了YP-9项目的研发历程。从最初的概念提出到如今的成熟产品，团队攻克了多项技术难题，获得了多项国家专利。
+
+郭礼和教授就HGH水解蛋白粉的技术原理进行了详细讲解。他介绍了基因重组HGH技术的创新之处，以及如何通过模拟饥饿素信号通路激活内源生长激素分泌。
+
+杨金波教授从海洋生物医药的角度，分享了活性成分提取和肠道靶向包裹技术的最新研究成果。他指出，这些技术的突破是YP-9产品效果显著的关键所在。
+
+与会专家还就产品的临床应用、安全性评估、长期效果追踪等方面提出了宝贵建议。这些专业意见将为YP-9产品的持续优化提供重要指导。`
+            },
+            3: {
+                title: 'YP-9系列产品现场展示引关注',
+                date: '2018-12-10',
+                image: 'images/news/news-03.jpg',
+                content: `YP-9项目启动大会的产品展示区成为全场焦点。中科之家精心布置了四大核心产品的体验区，让与会嘉宾近距离感受科技带来的健康变革。
+
+全光谱美光视能训练仪体验区吸引了众多家长和教育工作者。工作人员详细讲解了产品的全光谱LED光源技术，以及如何通过特定波段光线照射锻炼睫状肌。多位嘉宾亲自体验了15分钟的训练过程，对产品的舒适度和便捷性赞不绝口。
+
+中科院爱美高®水解蛋白粉展区展示了产品的科学配方和临床数据。专家介绍，该产品采用基因重组HGH技术，通过模拟饥饿素激活内源分泌，安全有效促进青少年身高增长。
+
+中科院视维他®固体营养展区重点展示了高纯度水溶性非酯化叶黄素的独特优势。现场对比实验显示，该产品的吸收率是普通酯化型叶黄素的3倍以上。
+
+中科院卫视仪展区展示了这款轻量化家用视力保健设备的便携设计。远红外热敷、气压按摩、多频振动三大功能的组合，让眼部保健变得简单高效。
+
+产品展示区的热烈反响，充分证明了YP-9系列产品的市场潜力和用户认可度。`
+            },
+            4: {
+                title: '中科之家与多家企业签署战略合作协议',
+                date: '2018-12-10',
+                image: 'images/news/news-04.jpg',
+                content: `YP-9项目启动大会上，中科之家与多家行业领先企业举行了隆重的战略合作签约仪式。这些合作涵盖了渠道拓展、技术研发、市场推广等多个领域，为YP-9项目的快速发展提供了强力支撑。
+
+签约仪式上，中科之家总经理张雪松先生与合作伙伴代表逐一签署了战略合作协议。他表示："我们希望通过与各界优秀企业的合作，构建完善的青少年健康管理生态体系，让更多家庭受益于中科之家的科研成果。"
+
+合作企业代表纷纷表示，中科之家源自中科院的科研背景和近30年的技术沉淀令人印象深刻。YP-9项目"视高双优"的创新理念在市场上具有独特优势，合作前景广阔。
+
+此次签约的合作伙伴包括多家知名教育机构、医疗健康平台、连锁药店等。未来，各方将在产品研发、渠道建设、品牌推广等方面展开深度合作，共同推动青少年视力与身高管理事业的发展。
+
+战略合作的达成，标志着中科之家正式进入快速发展阶段，为后续的市场布局奠定了坚实基础。`
+            },
+            5: {
+                title: '行业专家分享青少年健康管理前沿趋势',
+                date: '2018-12-10',
+                image: 'images/news/news-05.jpg',
+                content: `YP-9项目启动大会期间，多位行业专家发表了精彩的主题演讲，为与会者带来了青少年健康管理领域的最新研究成果和发展趋势。
+
+中科院上海生科院专家首先就中国青少年视力现状进行了深入分析。数据显示，我国青少年近视率持续攀升，小学生近视率已超过30%，初中生超过60%。专家强调，近视防控已成为刻不容缓的社会问题。
+
+接着，生长发育领域的专家分享了青少年身高发育的最新研究成果。他指出，遗传因素只占身高影响的70%，后天营养、运动、睡眠等因素同样重要。科学的身高管理可以有效促进青少年生长发育。
+
+来自海洋生物医药研究院的专家介绍了活性成分提取技术的最新进展。他详细讲解了如何通过创新技术提高营养成分的生物利用度，让产品效果更加显著。
+
+多位专家还就"视高同源"理念进行了深入探讨。他们认为，视力健康与身高发育存在内在联系，综合干预比单一管理效果更好。这一理念与中科之家YP-9项目的核心思路高度契合。
+
+专家们的精彩演讲为行业发展指明了方向，也为中科之家的产品推广提供了有力的理论支撑。`
+            },
+            6: {
+                title: '主流媒体聚焦中科之家YP-9项目',
+                date: '2018-12-10',
+                image: 'images/news/news-06.jpg',
+                content: `YP-9项目启动大会吸引了众多主流媒体的关注。来自新华社、人民日报、中央电视台、上海电视台等知名媒体的记者纷纷到场，对中科之家进行了专题采访报道。
+
+新华社记者首先采访了中科之家董事长张斌先生。张斌详细介绍了YP-9项目的研发背景、技术优势和市场前景。他表示，中科之家致力于将中科院的科研成果转化为惠及大众的健康产品，YP-9项目正是这一使命的重要体现。
+
+中央电视台记者重点采访了首席视觉科学家季皖中教授。季教授就全光谱美光视能训练仪的技术原理进行了通俗讲解，让普通观众也能理解这一创新技术的价值。
+
+上海电视台记者对产品展示区进行了实地拍摄，记录了多位嘉宾体验产品的真实反应。这些生动的画面将在后续的新闻报道中呈现给广大观众。
+
+多家网络媒体也对YP-9项目进行了深度报道。新浪健康、腾讯健康、网易健康等平台纷纷刊发专题文章，介绍中科之家的科研实力和产品优势。
+
+媒体的广泛报道，大幅提升了中科之家的品牌知名度，也为YP-9项目的市场推广营造了良好的舆论环境。`
+            },
+            7: {
+                title: '中科之家核心团队与合作伙伴合影留念',
+                date: '2018-12-10',
+                image: 'images/news/news-07.jpg',
+                content: `YP-9项目启动大会接近尾声时，中科之家核心团队与所有合作伙伴在会场举行了隆重的合影留念仪式。这一时刻被定格为中科之家发展历程中的重要记忆。
+
+合影现场，中科之家高管团队站在中央位置，两侧是战略合作伙伴代表和特邀专家。大家面带微笑，共同记录下这一难忘时刻。
+
+董事长张斌先生在合影前发表了简短感言："今天是一个新的起点。YP-9项目的启动，凝聚了团队多年的心血和汗水。感谢每一位合作伙伴的信任与支持，让我们携手共进，为中国青少年的健康事业贡献力量。"
+
+总经理张雪松先生也表示："中科之家拥有不可复制的科研优势和产品实力。在各位合作伙伴的共同努力下，我们有信心将YP-9项目打造成青少年健康管理领域的标杆品牌。"
+
+合影留念不仅是对过去努力的肯定，更是对未来发展的期许。中科之家团队将以此次启动大会为契机，全力以赴推进YP-9项目的市场落地，让更多家庭受益于科技创新带来的健康福祉。`
+            },
+            8: {
+                title: '与会嘉宾参观YP-9产品展示区',
+                date: '2018-12-10',
+                image: 'images/news/news-08.jpg',
+                content: `YP-9项目启动大会期间，产品展示区成为与会嘉宾重点参观的区域。中科之家精心布置了四大核心产品的展示体验区，让嘉宾们近距离感受科技带来的健康变革。
+
+全光谱美光视能训练仪展区吸引了众多教育工作者和家长的目光。工作人员详细讲解了产品的技术原理：采用中科院光学实验室研发的全光谱技术，通过特定波段光线照射，主动锻炼睫状肌收缩与舒张能力，改善眼内微循环。纯物理方式，不接触眼球，零损伤。
+
+中科院爱美高®水解蛋白粉展区展示了产品的科学配方。专家介绍，该产品由中科院上海生命科学研究院郭礼和教授团队研发，采用基因重组HGH技术转化的水解蛋白复合配方，通过模拟饥饿素信号通路，激活脑垂体自身分泌生长激素。
+
+中科院视维他®固体营养展区重点展示了高纯度水溶性非酯化叶黄素的独特优势。该产品吸收率是普通酯化型叶黄素的3倍以上，能有效过滤电子屏幕蓝光，保护视网膜细胞。
+
+中科院卫视仪展区展示了这款轻量化家用视力保健设备。融合远红外热敷、气压按摩、多频振动三大物理干预技术，体积小巧，充电式设计，出差旅行均可携带。
+
+嘉宾们对产品表现出浓厚兴趣，纷纷咨询产品详情和使用方法。现场热烈的互动氛围，充分证明了YP-9系列产品的市场吸引力。`
+            },
+            9: {
+                title: '现场技术交流互动热烈',
+                date: '2018-12-10',
+                image: 'images/news/news-09.jpg',
+                content: `YP-9项目启动大会的技术交流环节气氛热烈，专业人士就产品应用、技术优化、市场推广等方面展开了深入探讨。
+
+在视力训练技术讨论区，多位眼科专家与中科之家技术团队就全光谱美光视能训练仪的临床应用进行了深入交流。专家们对产品的纯物理训练方式表示认可，认为这种方式安全无副作用，适合青少年长期使用。
+
+在身高管理技术讨论区，生长发育领域的专家就中科院爱美高®水解蛋白粉的作用机制进行了探讨。专家们对模拟饥饿素激活内源分泌的创新思路表示赞赏，认为这比外源补充生长激素更加安全有效。
+
+在市场推广讨论区，渠道合作伙伴就YP-9产品的市场定位和推广策略提出了宝贵建议。大家一致认为，"视高双优"的差异化定位是产品的核心竞争力，应重点突出这一独特优势。
+
+技术团队的成员也认真听取了各方意见，并就产品优化方向进行了记录。他们表示，将根据专家建议和合作伙伴反馈，持续改进产品性能和用户体验。
+
+热烈的技术交流不仅增进了各方的相互了解，也为YP-9项目的后续发展提供了重要参考。`
+            },
+            10: {
+                title: 'YP-9项目阶段性成果获得专家认可',
+                date: '2018-12-10',
+                image: 'images/news/news-10.jpg',
+                content: `YP-9项目启动大会上，中科之家展示了项目的阶段性成果，获得了与会专家的一致认可和高度评价。
+
+技术成果方面，中科之家已申请多项国家发明专利，涵盖全光谱光学训练、水解蛋白配方、肠道靶向包裹等核心技术。这些专利构成了YP-9项目的技术壁垒，为产品的市场竞争力提供了有力保障。
+
+产品认证方面，全光谱美光视能训练仪已获得国家二类医疗器械注册证，中科院爱美高®水解蛋白粉通过GMP认证，中科院视维他®固体营养符合食品安全标准。完善的资质认证为产品的合规销售奠定了基础。
+
+临床数据方面，中科之家展示了多项临床验证结果。数据显示，使用全光谱美光视能训练仪3个月后，青少年裸眼视力平均提升0.3-0.5；连续服用中科院爱美高®水解蛋白粉6个月，青少年身高增长速度平均提升30%以上。
+
+市场反馈方面，前期试点门店的客户满意度达到95%以上，产品复购率超过80%。这些数据充分证明了YP-9系列产品的市场接受度和用户认可度。
+
+与会专家对中科之家的阶段性成果给予了高度评价，认为YP-9项目具有广阔的市场前景和社会价值，期待项目取得更大成功。`
+            }
+        };
+
+        function NewsDetailPage() {
+            const [newsId, setNewsId] = useState(null);
+            const [news, setNews] = useState(null);
+
+            useEffect(() => {
+                const params = new URLSearchParams(window.location.search);
+                const id = parseInt(params.get('id'));
+                setNewsId(id);
+                if (newsData[id]) {
+                    setNews(newsData[id]);
+                    document.title = newsData[id].title + ' - 中科之家';
+                }
+            }, []);
+
+            if (!news) {
+                return (
+                    <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+                        <div className="text-center">
+                            <h1 className="text-2xl font-bold text-slate-900 mb-4">新闻未找到</h1>
+                            <a href="news.html" className="text-blue-600 hover:underline">返回新闻列表</a>
+                        </div>
+                    </div>
+                );
+            }
+
+            const paragraphs = news.content.split('\n\n').filter(p => p.trim());
+
+            return (
+                <div className="min-h-screen bg-slate-50">
+                    {/* 导航栏 */}
+                    <nav className="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm border-b border-slate-100">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex justify-between h-20 items-center">
+                                <a href="index.html" className="flex-shrink-0 flex items-center gap-2">
+                                    <img src="/images/qiye.png" alt="中科之家" className="h-10 w-10 object-contain" />
+                                    <div>
+                                        <h1 className="text-xl font-bold text-slate-900 tracking-tight">中科之家</h1>
+                                        <p className="text-xs text-slate-500 font-medium">源自中科院的科技力量</p>
+                                    </div>
+                                </a>
+                                <div className="hidden md:flex items-center space-x-8">
+                                    <a href="index.html#home" className="font-medium text-slate-600 hover:text-blue-600 transition-colors">首页</a>
+                                    <a href="index.html#about" className="font-medium text-slate-600 hover:text-blue-600 transition-colors">走进中科</a>
+                                    <a href="index.html#team" className="font-medium text-slate-600 hover:text-blue-600 transition-colors">专家团队</a>
+                                    <a href="index.html#honors" className="font-medium text-slate-600 hover:text-blue-600 transition-colors">企业荣誉</a>
+                                    <a href="news.html" className="font-medium text-blue-600">企业新闻</a>
+                                    <a href="index.html#franchise" className="bg-blue-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-blue-700 transition-all shadow-md hover:shadow-lg">申请加盟</a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+
+                    {/* 新闻内容 */}
+                    <div className="pt-28 pb-16">
+                        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                            {/* 面包屑导航 */}
+                            <div className="flex items-center gap-2 text-sm text-slate-500 mb-8">
+                                <a href="index.html" className="hover:text-blue-600 transition-colors">首页</a>
+                                <span>/</span>
+                                <a href="news.html" className="hover:text-blue-600 transition-colors">企业新闻</a>
+                                <span>/</span>
+                                <span className="text-slate-900">正文</span>
+                            </div>
+
+                            {/* 标题 */}
+                            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{news.title}</h1>
+                            <div className="flex items-center gap-4 text-sm text-slate-400 mb-8">
+                                <span>{news.date}</span>
+                                <span>中科之家</span>
+                            </div>
+
+                            {/* 封面图 */}
+                            <div className="rounded-2xl overflow-hidden mb-10 shadow-lg bg-white">
+                                <img src={news.image} alt={news.title} className="w-full h-auto object-contain" />
+                            </div>
+
+                            {/* 正文 */}
+                            <div className="prose prose-lg max-w-none">
+                                {paragraphs.map((p, i) => (
+                                    <p key={i} className="text-slate-700 leading-relaxed mb-6 first-line:indent-8">{p}</p>
+                                ))}
+                            </div>
+
+                            {/* 返回按钮 */}
+                            <div className="mt-12 pt-8 border-t border-slate-200">
+                                <a href="news.html" className="inline-flex items-center gap-2 text-blue-600 font-medium hover:gap-3 transition-all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"/></svg>
+                                    返回新闻列表
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* 底部 */}
+                    <footer className="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                            <p className="text-sm">© 2026 中科之家 版权所有</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<NewsDetailPage />);
+    </script>
+</body>
+</html>

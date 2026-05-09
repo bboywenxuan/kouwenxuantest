@@ -1,0 +1,13 @@
+{
+  "name": "hengtong-website",
+  "version": "1.0.0",
+  "description": "中科之家官网 - 生产构建工具",
+  "scripts": {
+    "build": "node build.js",
+    "server": "cd server && npm start",
+    "dev": "cd server && npm run dev"
+  },
+  "devDependencies": {
+    "esbuild": "^0.19.0"
+  }
+}

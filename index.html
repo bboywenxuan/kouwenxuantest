@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/images/qiye.png">
+    <title>中科之家 - 中科院科技成果转化 | 青少年视力保护与身高管理</title>
+    <meta name="description" content="上海衡通之家科技有限公司，源起中科院上海生命科学研究院（1993年），专注青少年视力训练与身高促进，提供全光谱美光视能训练仪、HGH水解蛋白粉等核心产品。全国招商加盟中。">
+    <meta name="keywords" content="中科之家,视力训练,身高管理,近视防控,青少年视力,全光谱训练仪,中科衡通,爱美高,视维他,HGH,水解蛋白粉,加盟招商,中科院">
+    <meta name="author" content="上海衡通之家科技有限公司">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.hengtongzhijia.com/">
+    <!-- Open Graph / 社交分享 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="中科之家 - 中科院科技成果转化 | 青少年视力保护与身高管理">
+    <meta property="og:description" content="源自中科院上海生命科学研究院，专注青少年视力训练与身高促进，全国招商加盟中。">
+    <meta property="og:url" content="https://www.hengtongzhijia.com/">
+    <meta property="og:site_name" content="中科之家">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="中科之家 - 中科院科技成果转化 | 青少年视力保护与身高管理">
+    <meta name="twitter:description" content="源自中科院上海生命科学研究院，专注青少年视力训练与身高促进，全国招商加盟中。">
+    <!-- 结构化数据 Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "上海衡通之家科技有限公司",
+      "alternateName": "中科之家",
+      "url": "https://www.hengtongzhijia.com",
+      "logo": "https://www.hengtongzhijia.com/images/qiye.png",
+      "description": "源自中科院上海生命科学研究院，专注青少年视力训练与身高促进",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "上海市徐汇区漕溪北路18号上海实业大厦8层8C室",
+        "addressLocality": "上海",
+        "addressRegion": "上海市",
+        "addressCountry": "CN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+86-21-34622630",
+        "contactType": "sales",
+        "availableLanguage": "Chinese"
+      },
+      "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "加盟中科之家需要多少启动资金？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "单店启动资金预估在25万-50万之间，具体取决于城市级别、门店规模和装修标准。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "加盟后多久可以回本？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "根据现有加盟商数据，平均回本周期为6-10个月。成熟门店预期年净利润可达50万-100万以上。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "总部提供哪些支持？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "总部提供全方位支持：品牌授权、选址评估、设备采购、系统培训、开业指导、云连锁引流、AI骨龄SaaS系统等。"
+          }
+        }
+      ]
+    }
+    </script>
+    <!-- 引入 Tailwind CSS 进行页面样式布局 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 React 核心库 -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- 引入 Babel 实时编译 JSX 语法 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&family=ZCOOL+XiaoWei&display=swap');
+        :root {
+            --ink: #0b1220;
+            --cobalt: #0f4cfe;
+            --cyan: #20d6ff;
+            --emerald: #12c99b;
+            --gold: #d7a94b;
+            --porcelain: #f7fbff;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+            color: #0f172a;
+        }
+        .brand-serif { font-family: 'Noto Serif SC', serif; letter-spacing: -0.04em; }
+        .brand-mark { font-family: 'ZCOOL XiaoWei', serif; letter-spacing: .16em; }
+        .glass-nav { background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(248,250,252,.9)); box-shadow: 0 4px 20px rgba(15,23,42,.08); }
+        .medical-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 76% 44%, rgba(59,130,246,.12), transparent 18rem),
+                linear-gradient(90deg, rgba(255,255,255,.9), rgba(255,255,255,.6) 48%, rgba(255,255,255,.2));
+            pointer-events: none;
+        }
+        .vision-field {
+            background:
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,.96) 0 13%, rgba(166,226,255,.24) 13.5% 14.5%, transparent 15%),
+                radial-gradient(circle at 50% 50%, transparent 0 27%, rgba(15,76,254,.13) 27.5% 28.2%, transparent 28.8%),
+                radial-gradient(circle at 50% 50%, transparent 0 40%, rgba(32,214,255,.16) 40.4% 41%, transparent 41.5%),
+                conic-gradient(from 24deg at 50% 50%, rgba(15,76,254,.18), rgba(32,214,255,.08), rgba(18,201,155,.12), rgba(15,76,254,.18));
+            box-shadow: 0 38px 95px rgba(15,76,254,.14), inset 0 0 48px rgba(255,255,255,.92);
+        }
+        .vision-field::before {
+            content: "";
+            position: absolute;
+            inset: 12%;
+            border-radius: 999px;
+            border: 1px solid rgba(15,76,254,.15);
+            background: repeating-radial-gradient(circle at 50% 50%, transparent 0 18px, rgba(15,76,254,.08) 19px, transparent 20px);
+            mask-image: radial-gradient(circle at 50% 50%, transparent 0 18%, black 19% 72%, transparent 73%);
+        }
+        .vision-field::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 72%;
+            height: 1px;
+            transform: translate(-50%, -50%) rotate(-18deg);
+            background: linear-gradient(90deg, transparent, rgba(15,76,254,.34), transparent);
+            box-shadow: 0 38px 0 rgba(32,214,255,.18), 0 -38px 0 rgba(32,214,255,.18);
+        }
+        .hud-panel { border: 1px solid rgba(15,76,254,.14); background: linear-gradient(135deg, rgba(255,255,255,.72), rgba(240,248,255,.42)); box-shadow: inset 0 0 28px rgba(35, 210, 255, .05), 0 0 30px rgba(35, 210, 255, .06); backdrop-filter: blur(8px); }
+        .hud-panel::before, .hud-panel::after { content: ""; position: absolute; width: 34px; height: 34px; border-color: rgba(15,76,254,.34); pointer-events: none; }
+        .hud-panel::before { left: 12px; top: 12px; border-left: 2px solid; border-top: 2px solid; }
+        .hud-panel::after { right: 12px; bottom: 12px; border-right: 2px solid; border-bottom: 2px solid; }
+        .hud-scan { animation: hud-scan 4s ease-in-out infinite; }
+        @keyframes hud-scan { 0%,100% { transform: translateY(-15%); opacity: .08; } 50% { transform: translateY(180%); opacity: .35; } }
+        .hero-orb { filter: blur(2px); animation: float-orb 9s ease-in-out infinite; }
+        .hero-orb:nth-child(2) { animation-delay: -3s; }
+        @keyframes float-orb { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(18px,-26px,0) scale(1.06); } }
+        .reveal { opacity: 0; transform: translateY(34px) scale(.985); transition: opacity 0.8s cubic-bezier(.2,.8,.2,1), transform 0.8s cubic-bezier(.2,.8,.2,1); }
+        .reveal.revealed { opacity: 1; transform: translateY(0) scale(1); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+        .premium-card { position: relative; background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.82)); box-shadow: 0 18px 55px rgba(15,23,42,.07); }
+        .premium-card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: linear-gradient(135deg, rgba(15,76,254,.28), rgba(32,214,255,.08), rgba(215,169,75,.25)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+        .section-kicker { display: inline-flex; align-items: center; gap: .5rem; padding: .45rem .85rem; border-radius: 999px; background: rgba(15,76,254,.06); color: #0f4cfe; border: 1px solid rgba(15,76,254,.12); }
+        .section-kicker::before { content: ""; width: .45rem; height: .45rem; border-radius: 999px; background: linear-gradient(135deg, var(--cobalt), var(--cyan)); box-shadow: 0 0 0 5px rgba(15,76,254,.06); }
+        .tech-chip { background: rgba(15,76,254,.05); border: 1px solid rgba(15,76,254,.10); box-shadow: inset 0 1px 0 rgba(255,255,255,.58); color: #0f4cfe; }
+        @keyframes pulse-cta { 0%,100% { box-shadow: 0 0 0 0 rgba(15,76,254,0.42); } 50% { box-shadow: 0 0 0 14px rgba(15,76,254,0); } }
+        .pulse-cta { animation: pulse-cta 2s infinite; }
+    </style>
+</head>
+<body>
+    <!-- React 挂载点 -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // -----------------------------------------------------
+        // 1. 图标组件 (替换构建工具环境下的 lucide-react 库)
+        // -----------------------------------------------------
+        const Icon = ({ path, className }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                {path}
+            </svg>
+        );
+
+        const Globe2 = ({className}) => <Icon className={className} path={<><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></>} />;
+        const Menu = ({className}) => <Icon className={className} path={<><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></>} />;
+        const X = ({className}) => <Icon className={className} path={<><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>} />;
+        const ArrowRight = ({className}) => <Icon className={className} path={<><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></>} />;
+        const Sparkles = ({className}) => <Icon className={className} path={<><path d="M12 3v3m0 12v3m9-9h-3M6 12H3m14.485-6.485-2.121 2.121M6.636 17.364l-2.121-2.121m12.728 0-2.121 2.121M6.636 6.636 4.515 4.515"/></>} />;
+        const Building2 = ({className}) => <Icon className={className} path={<><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></>} />;
+        const Award = ({className}) => <Icon className={className} path={<><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></>} />;
+        const Shield = ({className}) => <Icon className={className} path={<><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></>} />;
+        const Microchip = ({className}) => <Icon className={className} path={<><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M20 9h3"/><path d="M20 14h3"/><path d="M1 9h3"/><path d="M1 14h3"/></>} />;
+        const Eye = ({className}) => <Icon className={className} path={<><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></>} />;
+        const Activity = ({className}) => <Icon className={className} path={<><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></>} />;
+        const TrendingUp = ({className}) => <Icon className={className} path={<><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></>} />;
+        const CheckCircle2 = ({className}) => <Icon className={className} path={<><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></>} />;
+        const ChevronRight = ({className}) => <Icon className={className} path={<><polyline points="9 18 15 12 9 6"/></>} />;
+        const MapPin = ({className}) => <Icon className={className} path={<><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></>} />;
+        const Phone = ({className}) => <Icon className={className} path={<><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></>} />;
+        const Mail = ({className}) => <Icon className={className} path={<><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></>} />;
+        const Users = ({className}) => <Icon className={className} path={<><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></>} />;
+        const MessageSquare = ({className}) => <Icon className={className} path={<><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></>} />;
+        const ArrowUp = ({className}) => <Icon className={className} path={<><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></>} />;
+        const Wechat = ({className}) => (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+                <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.934-6.444 1.707-1.415 3.767-2.22 5.81-2.22.224 0 .443.013.66.032C16.917 4.596 13.134 2.188 8.691 2.188zm-2.6 4.408c.78 0 1.416.64 1.416 1.425 0 .786-.636 1.425-1.416 1.425-.78 0-1.416-.639-1.416-1.425 0-.785.636-1.425 1.416-1.425zm5.213 0c.78 0 1.416.64 1.416 1.425 0 .786-.636 1.425-1.416 1.425-.78 0-1.416-.639-1.416-1.425 0-.785.636-1.425 1.416-1.425zM23.76 15.7c0-3.335-3.37-6.04-7.526-6.04-4.156 0-7.526 2.705-7.526 6.04 0 3.335 3.37 6.04 7.526 6.04.87 0 1.712-.12 2.504-.346a.696.696 0 0 1 .577.078l1.537.9a.266.266 0 0 0 .135.044c.13 0 .234-.107.234-.238 0-.058-.023-.115-.038-.17l-.315-1.2a.477.477 0 0 1 .173-.537c1.483-1.095 2.42-2.75 2.42-4.57zm-10.036-.96c-.632 0-1.145-.517-1.145-1.153 0-.636.513-1.153 1.145-1.153.632 0 1.145.517 1.145 1.153 0 .636-.513 1.153-1.145 1.153zm5.02 0c-.632 0-1.145-.517-1.145-1.153 0-.636.513-1.153 1.145-1.153.632 0 1.145.517 1.145 1.153 0 .636-.513 1.153-1.145 1.153z"/>
+            </svg>
+        );
+        const PhoneCall = ({className}) => <Icon className={className} path={<><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 9a4 4 0 0 1 4 4"/><path d="M14.05 5a8 8 0 0 1 8 8"/></>} />;
+
+        // -----------------------------------------------------
+        // 2. 主体 React 应用代码
+        // -----------------------------------------------------
+        const { useState, useEffect, useCallback } = React;
+
+        const App = () => {
+            const [isMenuOpen, setIsMenuOpen] = useState(false);
+            const [formData, setFormData] = useState({ name: '', phone: '', city: '' });
+            const [formStatus, setFormStatus] = useState({ type: '', message: '' });
+            const [selectedProduct, setSelectedProduct] = useState(null);
+            const [selectedHonor, setSelectedHonor] = useState(null);
+            const [activeSection, setActiveSection] = useState('home');
+            const [scrolled, setScrolled] = useState(false);
+            const [captcha, setCaptcha] = useState({ question: '', answer: 0, input: '' });
+            const [showSuccessModal, setShowSuccessModal] = useState(false);
+            const [openFaqIndex, setOpenFaqIndex] = useState(null);
+
+            const generateCaptcha = useCallback(() => {
+                const operators = ['+', '-', '×'];
+                const op = operators[Math.floor(Math.random() * operators.length)];
+                let a, b, answer;
+                if (op === '+') {
+                    a = Math.floor(Math.random() * 20) + 1;
+                    b = Math.floor(Math.random() * 20) + 1;
+                    answer = a + b;
+                } else if (op === '-') {
+                    a = Math.floor(Math.random() * 20) + 10;
+                    b = Math.floor(Math.random() * 10) + 1;
+                    answer = a - b;
+                } else {
+                    a = Math.floor(Math.random() * 9) + 2;
+                    b = Math.floor(Math.random() * 9) + 2;
+                    answer = a * b;
+                }
+                setCaptcha({ question: `${a} ${op} ${b} = ?`, answer, input: '' });
+            }, []);
+
+            useEffect(() => {
+                generateCaptcha();
+            }, [generateCaptcha]);
+
+            // 滚动监听 — 导航高亮 + 悬浮CTA显隐
+            useEffect(() => {
+                const sections = ['home','about','team','executives','solutions','franchise'];
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) setActiveSection(entry.target.id);
+                        });
+                    },
+                    { rootMargin: '-40% 0px -55% 0px' }
+                );
+                sections.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) observer.observe(el);
+                });
+                const onScroll = () => setScrolled(window.scrollY > 400);
+                window.addEventListener('scroll', onScroll, { passive: true });
+                return () => {
+                    observer.disconnect();
+                    window.removeEventListener('scroll', onScroll);
+                };
+            }, []);
+
+            // 滚动入场动效
+            useEffect(() => {
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('revealed');
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+                );
+                document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+                return () => observer.disconnect();
+            }, []);
+
+            const handleSubmit = async (e) => {
+                e.preventDefault();
+                
+                if (parseInt(captcha.input) !== captcha.answer) {
+                    setFormStatus({ type: 'error', message: '验证码错误，请重新计算' });
+                    generateCaptcha();
+                    return;
+                }
+
+                setFormStatus({ type: 'loading', message: '提交中...' });
+                try {
+                    const res = await fetch('/api/franchise', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ ...formData, captcha: captcha.input })
+                    });
+                    const data = await res.json();
+                    if (res.ok) {
+                        setFormStatus({ type: 'success', message: data.message });
+                        setFormData({ name: '', phone: '', city: '' });
+                        setCaptcha(prev => ({ ...prev, input: '' }));
+                        setShowSuccessModal(true);
+                        setTimeout(() => setShowSuccessModal(false), 5000);
+                    } else {
+                        setFormStatus({ type: 'error', message: data.error || '提交失败' });
+                        generateCaptcha();
+                    }
+                } catch (err) {
+                    setFormStatus({ type: 'error', message: '网络错误，请稍后重试' });
+                    generateCaptcha();
+                }
+            };
+
+            const navLinks = [
+                { name: '首页', href: '#home' },
+                { name: '走进中科', href: '#about' },
+                { name: '专家团队', href: '#team' },
+                { name: '高管团队', href: '#executives' },
+                { name: '企业荣誉', href: '#honors' },
+                { name: '核心方案', href: '#solutions' },
+                { name: '招商加盟', href: '#franchise' },
+            ];
+
+            const teamMembers = [
+                {
+                    name: '季皖中',
+                    title: '首席视觉科学家',
+                    desc: '中国科学院上海生命科学研究院专家，享受国务院津贴。中国第一台视力训练仪核心研发者，从事青少年视力研究近40年。',
+                    image: 'images/team/ji-wanzhong.png'
+                },
+                {
+                    name: '郭礼和',
+                    title: '中国 HGH（人生长激素）之父',
+                    desc: '中科院上海生科院专家，国家”八五”科技攻关先进工作者。主持的”人生长激素基因工程研究”获中科院科技进步二等奖。',
+                    image: 'images/team/guo-lihe.png'
+                },
+                {
+                    name: '张斌',
+                    title: '董事长',
+                    desc: '历任上海儿童基金会理事、《中国学校卫生杂志》副总编。长期致力于中科院科技成果转化工作，著有《身高的奥秘》等多部医学专著。',
+                    image: 'images/team/zhang-bin.png'
+                },
+                {
+                    name: '杨金波',
+                    title: '科学顾问 / 教授 / 博导',
+                    desc: '青岛海洋生物医药研究院首席科学家。山东省”泰山学者”特聘专家，中国海洋大学医药学院”筑峰”二层次教授。',
+                    image: 'images/team/yang-jinbo.png'
+                }
+            ];
+
+            const executives = [
+                {
+                    name: '谢飞',
+                    title: '科学顾问 / 博士',
+                    desc: '毕业于上海交通大学医学院瑞金医院上海血液学研究所。曾任解放军医学检验中心主管技师，多次获全国全军医学论文发表特等奖、一等奖。世界中医药学会联合会药膳食疗专业委员会副秘书长。',
+                    image: 'images/team/xie-fei.png'
+                },
+                {
+                    name: '张雪松',
+                    title: '总经理',
+                    desc: '专注医疗健康事业30年，粉嫩医生、玡博仕、歌贝佳等品牌创始人。曾服务脑白金、美国华纳制药、啄木鸟和花期医美等多家机构。中国女子篮球队、中国好声音等品牌策划赞助商。擅长团队建设、业务布局与经营决策。',
+                    image: 'images/team/zhang-xuesong.png'
+                },
+                {
+                    name: '马明',
+                    title: '联合创始人',
+                    desc: '毕业于华中科技大学，近二十年互联网营销全案经验。曾供职于搜狐、凤凰网、哔站等大型互联网企业。擅长品牌推广、全域流量运营与新媒体矩阵布局，精于策略策划、渠道整合与增长变现。',
+                    image: 'images/team/ma-ming.png'
+                },
+                {
+                    name: '莫衡南',
+                    title: '副总经理 / COO',
+                    desc: '毕业于华中科技大学，硕士学历。曾供职于中国石油、壳牌、哈里伯顿等世界500强企业。拥有丰富的公司运营和战略落地经验，细节敏感，务实稳健。',
+                    image: 'images/team/mo-hengnan.png'
+                },
+                {
+                    name: '张勇',
+                    title: '联合创始人 / CFO',
+                    desc: '供职于多家国际知名会计师事务所，历任财务总监、总会计师等职务。精通账务统筹、税务筹划与风控管理。擅长财务团队搭建与制度建设，曾主导多起企业重要投融资计划。',
+                    image: 'images/team/zhang-yong.png'
+                },
+                {
+                    name: '黄天罡',
+                    title: '联合创始人',
+                    desc: '前威马汽车旗下顺风车出行平台合伙人/副总裁。曾就职于威马、小米、乐视、小牛等知名互联网企业，担任互联网运营与增长体系负责人。',
+                    image: 'images/team/huang-tiangang.png'
+                }
+            ];
+
+            const honors = [
+                { year: '1995', title: '中国科学院科技进步三等奖', desc: '国家级科研奖项', image: 'images/honors/cert-01.jpg' },
+                { year: '1998', title: '上海市高新技术企业', desc: '上海市政府认定', image: 'images/honors/cert-02.jpg' },
+                { year: '2000', title: '国家二类医疗器械注册证', desc: '国家药品监督管理局批准', image: 'images/honors/cert-03.jpg' },
+                { year: '2003', title: '上海市市级新产品证书', desc: '获评市级新产品', image: 'images/honors/cert-04.jpg' },
+                { year: '2010', title: '国家教委/卫生部推荐', desc: '多部委联合推荐', image: 'images/honors/cert-05.jpg' },
+                { year: '2018', title: '多项国家发明专利', desc: '知识产权授权', image: 'images/honors/cert-06.jpg' },
+                { year: '', title: '荣誉证书七', desc: '权威机构认证', image: 'images/honors/cert-07.jpg' },
+                { year: '', title: '荣誉证书八', desc: '行业资质认证', image: 'images/honors/cert-08.jpg' },
+                { year: '', title: '荣誉证书九', desc: '专业领域认可', image: 'images/honors/cert-09.jpg' },
+                { year: '', title: '荣誉证书十', desc: '企业荣誉资质', image: 'images/honors/cert-10.jpg' },
+                { year: '', title: '荣誉证书十一', desc: '技术创新认证', image: 'images/honors/cert-11.jpg' },
+                { year: '', title: '荣誉证书十二', desc: '质量管理认证', image: 'images/honors/cert-12.jpg' },
+            ];
+
+            const products = [
+                {
+                    name: '全光谱美光视能训练仪',
+                    price: '39,800元/台',
+                    features: ['纯物理光学训练', '主动锻炼睫状肌', '全光谱补光防近视', '从根源科学干预'],
+                    icon: <Eye className="w-8 h-8 text-blue-500" />,
+                    color: 'blue',
+                    detail: '采用中科院光学实验室研发的全光谱技术，通过特定波段光线照射，主动锻炼睫状肌收缩与舒张能力，改善眼内微循环。纯物理方式，不接触眼球，零损伤。每次训练15分钟，每天2次，持续使用3个月即可显著提升裸眼视力。适用于6-18岁青少年近视防控及轻度近视矫正。',
+                    suitable: '6-18岁近视青少年、长期近距离用眼人群',
+                    specs: ['全光谱LED光源', '智能定时控制', 'LED触控面板', '国家发明专利技术', 'CE/FCC认证']
+                },
+                {
+                    name: '中科院爱美高®水解蛋白粉',
+                    price: '980元/盒',
+                    features: ['模拟饥饿素激活内源分泌', '创新包裹技术肠道吸收', '安全长效机制无外源风险', '中科院基因重组HGH技术'],
+                    icon: <Activity className="w-8 h-8 text-green-500" />,
+                    color: 'green',
+                    detail: '由中科院上海生命科学研究院郭礼和教授团队研发，采用基因重组HGH技术转化的水解蛋白复合配方。通过模拟饥饿素信号通路，激活脑垂体自身分泌生长激素，而非外源补充。创新肠道包裹技术确保活性成分不被胃酸破坏，直达小肠吸收。经临床验证，连续服用6个月，青少年身高增长速度平均提升30%以上。',
+                    suitable: '3-15岁身高发育迟缓儿童、生长激素偏低的青少年',
+                    specs: ['每盒30袋装', '每日1-2袋温水冲服', '基因重组HGH技术', '肠道靶向包裹技术', '国家科技进步二等奖']
+                },
+                {
+                    name: '中科院视维他®固体营养',
+                    price: '168元/盒',
+                    features: ['高纯度水溶性非酯化叶黄素', '缓解眼疲劳与干涩酸胀', '保护视网膜及黄斑区', '抵御蓝光与紫外线伤害'],
+                    icon: <Sparkles className="w-8 h-8 text-yellow-500" />,
+                    color: 'yellow',
+                    detail: '采用高纯度水溶性非酯化叶黄素，吸收率是普通酯化型叶黄素的3倍以上。叶黄素是构成视网膜黄斑区的核心色素，能有效过滤电子屏幕蓝光，保护视网膜细胞。特别添加玉米黄质和花青素协同增效，缓释技术确保24小时持续供应眼部营养。适合长期使用电脑、手机的成年人及青少年。',
+                    suitable: '长期使用电子屏幕人群、眼干涩疲劳者、青少年近视防控',
+                    specs: ['每盒60片装', '每日2片咀嚼或吞服', '非酯化水溶性配方', '叶黄素+玉米黄质+花青素', 'GMP标准生产']
+                },
+                {
+                    name: '中科院卫视仪',
+                    price: '2,800元/台',
+                    features: ['轻量化视力保护', '居家便捷使用', '科学视力管理', '辅助控制度数'],
+                    icon: <Shield className="w-8 h-8 text-indigo-500" />,
+                    color: 'indigo',
+                    detail: '轻量化的家用视力保健设备，融合远红外热敷、气压按摩、多频振动三大物理干预技术。通过眼周穴位精准按摩促进血液循环，缓解长时间用眼导致的眼肌痉挛和视疲劳。体积小巧，充电式设计，出差旅行均可携带。配合视维他固体营养使用效果更佳。',
+                    suitable: '学生、上班族、中老年早期老花人群日常眼部保健',
+                    specs: ['折叠便携设计', 'USB充电续航7天', '3档温度/力度调节', '远红外+气压+振动', '自动定时15分钟']
+                },
+                {
+                    name: '骨龄片解读分析报告',
+                    price: '68元/份',
+                    features: ['中华05+TW3双标准勘定', 'AI大模型辅助判读', '精准判断早熟/晚长', '个性化身高干预建议'],
+                    icon: <Activity className="w-8 h-8 text-orange-500" />,
+                    color: 'orange',
+                    detail: '采用中华05与TW3国际双标准骨龄评估体系，结合AI大模型图像识别技术进行骨龄片智能判读。双标准交叉核对，避免单一标准误判，更贴合中国人发育规律。可精准判断早熟、晚长趋势，为身高干预提供科学依据。由专业医生出具详细分析报告。',
+                    suitable: '3-18岁关注身高发育的儿童青少年、需要身高干预方案的家庭',
+                    specs: ['中华05+TW3双标准', 'AI智能判读', '专业医生复核', '个性化干预建议', '电子版+纸质版报告']
+                },
+                {
+                    name: '中科医学多功能运动训练设备包',
+                    price: '39,800元/套',
+                    features: ['纵向拉伸牵引设备', '脊柱体态矫正装置', '骨骼肌群放松器械', '5-9台完整配置'],
+                    icon: <TrendingUp className="w-8 h-8 text-red-500" />,
+                    color: 'red',
+                    detail: '包含5至9台专业运动训练设备，覆盖纵向拉伸、脊柱体态矫正、骨骼肌群放松、核心力量训练等完整功能。通过科学的物理干预手段，拉开椎间隙刺激下肢骨骺软骨生长，矫正驼背导致的3-5cm身高压缩，放松紧张肌肉避免牵拉阻碍骨骼纵向发育。',
+                    suitable: '加盟门店标准化配置、生长发育管理中心专业训练',
+                    specs: ['5-9台组合套装', '纵向拉伸+体态矫正+肌肉放松', '商用级耐用设计', '配套训练SOP手册', '总部免费操作培训']
+                }
+            ];
+
+            const faqs = [
+                {
+                    question: '加盟中科之家需要多少启动资金？',
+                    answer: '单店启动资金预估在25万-50万之间，具体取决于城市级别、门店规模和装修标准。费用包含：设备采购、首批产品、装修指导、培训费用、品牌使用费等。总部会提供详细的投资预算表。'
+                },
+                {
+                    question: '没有医疗健康行业经验可以加盟吗？',
+                    answer: '完全可以。我们提供从零开始的系统化培训，包括产品知识、操作流程、客户管理、营销推广等。总部还会派遣资深运营人员到店指导开业，确保顺利起步。'
+                },
+                {
+                    question: '加盟后多久可以回本？',
+                    answer: '根据现有加盟商数据，平均回本周期为6-10个月。成熟门店预期年净利润可达50万-100万以上。具体收益受门店位置、运营能力和当地市场影响。'
+                },
+                {
+                    question: '总部提供哪些支持？',
+                    answer: '总部提供全方位支持：①品牌授权与VI系统 ②选址评估与装修设计 ③设备采购与安装调试 ④系统培训与考核认证 ⑤开业指导与运营支持 ⑥美团/抖音云连锁引流 ⑦AI骨龄SaaS系统 ⑧持续产品更新与营销支持。'
+                },
+                {
+                    question: '加盟区域有保护政策吗？',
+                    answer: '是的，我们实行严格的区域保护政策。根据城市级别和人口密度，每个加盟商享有专属的经营范围保护，确保您的市场空间不受其他加盟商干扰。具体保护范围在加盟协议中明确约定。'
+                },
+                {
+                    question: '产品效果如何保证？',
+                    answer: '所有产品均源自中科院科研成果，拥有多项国家专利和医疗器械注册证。视力训练仪经过近40年临床验证，HGH水解蛋白粉获国家科技进步二等奖。我们承诺产品效果，并提供完善的售后服务体系。'
+                },
+                {
+                    question: '加盟流程是怎样的？',
+                    answer: '加盟流程：①提交咨询表单 ②招商专员对接（24小时内） ③详细了解项目 ④实地考察总部 ⑤签订加盟协议 ⑥支付加盟费用 ⑦选址与装修 ⑧系统培训 ⑨设备进场 ⑩正式开业。全程约30-45天。'
+                },
+                {
+                    question: '加盟后需要自己囤货吗？',
+                    answer: '不需要大量囤货。我们采用"总部直发+门店常备"的模式，门店只需保持少量常用产品库存。客户下单后，总部直接发货到店或客户地址，降低您的库存压力和资金占用。'
+                }
+            ];
+
+            const franchiseSteps = [
+                { step: 1, title: '提交咨询', desc: '填写表单索取招商资料', icon: '📝', duration: '1分钟' },
+                { step: 2, title: '专员对接', desc: '招商经理详细沟通需求', icon: '📞', duration: '24小时内' },
+                { step: 3, title: '实地考察', desc: '参观总部与样板门店', icon: '🏢', duration: '1-3天' },
+                { step: 4, title: '签约合作', desc: '签订加盟协议并缴费', icon: '✍️', duration: '1天' },
+                { step: 5, title: '选址装修', desc: '总部协助选址与设计', icon: '🏪', duration: '15-20天' },
+                { step: 6, title: '系统培训', desc: '产品/运营/营销全培训', icon: '📚', duration: '5-7天' },
+                { step: 7, title: '设备进场', desc: '设备安装调试完成', icon: '🔧', duration: '2-3天' },
+                { step: 8, title: '正式开业', desc: '总部指导开业运营', icon: '🎉', duration: '持续支持' }
+            ];
+
+
+            return (
+                <div className="min-h-screen font-sans text-slate-800 selection:bg-blue-600 selection:text-white relative overflow-hidden">
+                {/* 导航栏 */}
+                <nav className="fixed w-full glass-nav backdrop-blur-md z-50 border-b border-white/70">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex justify-between h-20 items-center">
+                        <div className="flex-shrink-0 flex items-center gap-3 text-slate-900 drop-shadow-none">
+                        <img src="/images/qiye.png" alt="中科之家" className="h-11 w-11 object-contain opacity-95" />
+                        <div>
+                            <h1 className="text-xl font-black tracking-tight brand-serif text-slate-900">中科之家</h1>
+                            <p className="text-xs text-slate-500 font-semibold brand-mark">源自中科院的科技力量</p>
+                        </div>
+                        </div>
+                        
+                        {/* PC端菜单 */}
+                        <div className="hidden md:flex items-center gap-9 text-slate-700">
+                        {navLinks.map((link) => {
+                            const sectionId = link.href.replace('#', '');
+                            const isActive = activeSection === sectionId;
+                            return (
+                            <a key={link.name} href={link.href} className={`relative py-7 text-sm font-medium transition-all hover:text-blue-700 ${isActive ? 'text-blue-700' : 'text-slate-600'}`}>
+                                {link.name}
+                                <span className={`absolute left-0 right-0 bottom-4 mx-auto h-[2px] bg-blue-600 transition-all ${isActive ? 'w-full opacity-100' : 'w-0 opacity-0'}`}></span>
+                            </a>
+                            );
+                        })}
+                        <a href="#franchise" className="border border-blue-200 text-blue-700 px-5 py-2 text-sm font-medium hover:bg-blue-600 hover:text-white transition-all bg-white/70">
+                            申请加盟
+                        </a>
+                        </div>
+
+                        {/* 移动端菜单按钮 */}
+                        <div className="md:hidden flex items-center">
+                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-slate-600">
+                            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                        </button>
+                        </div>
+                    </div>
+                    </div>
+
+                    {/* 移动端下拉菜单 */}
+                    {isMenuOpen && (
+                    <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-slate-100 absolute w-full shadow-lg">
+                        <div className="px-4 pt-2 pb-6 space-y-1">
+                        {navLinks.map((link) => (
+                            <a key={link.name} href={link.href} onClick={() => setIsMenuOpen(false)} className="block px-3 py-3 text-base font-medium text-slate-700 hover:text-blue-700 hover:bg-slate-50 rounded-lg">
+                            {link.name}
+                            </a>
+                        ))}
+                        </div>
+                    </div>
+                    )}
+                </nav>
+
+                {/* 首页大图区 */}
+                <section id="home" className="medical-hero relative min-h-screen overflow-hidden bg-white flex items-center">
+                    <div className="absolute inset-0 z-0">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_15%,rgba(15,76,254,.10),transparent_22rem),radial-gradient(circle_at_78%_22%,rgba(32,214,255,.10),transparent_18rem),linear-gradient(180deg,#f9fdff_0%,#eef7ff_44%,#ffffff_100%)]"></div>
+                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&q=80" alt="眼科视力背景" className="absolute inset-0 w-full h-full object-cover opacity-22" />
+                        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,.94),rgba(255,255,255,.80)_42%,rgba(255,255,255,.58)_100%)]"></div>
+                    </div>
+                    <div className="absolute left-0 top-0 bottom-0 z-10 hidden lg:flex items-center px-8">
+                        <div className="flex flex-col gap-4">
+                            <span className="w-3 h-3 rounded-full bg-blue-500/35"></span>
+                            <span className="w-4 h-4 rounded-full bg-cyan-400/25"></span>
+                            <span className="w-2 h-2 rounded-full bg-emerald-400/35"></span>
+                        </div>
+                    </div>
+                    <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20">
+                        <div className="max-w-3xl rounded-[2rem] bg-white/68 border border-slate-200/70 backdrop-blur-xl p-6 sm:p-8 shadow-2xl shadow-slate-300/30">
+                            <div className="relative inline-block mb-7">
+                                <div className="hud-panel relative w-[min(88vw,560px)] h-52 sm:h-60 overflow-hidden bg-white/62">
+                                    <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-cyan-200/35 to-transparent"></div>
+                                    <div className="hud-scan absolute left-0 right-0 top-0 h-24 bg-gradient-to-b from-transparent via-cyan-200/20 to-transparent"></div>
+                                    <div className="absolute inset-6 border border-cyan-200/45"></div>
+                                    <div className="absolute left-8 top-8 w-36 h-24 border border-cyan-200/55 rounded-full blur-[1px]"></div>
+                                    <div className="absolute right-14 top-10 w-24 h-24 rounded-full border border-blue-200/55"></div>
+                                    <div className="absolute left-10 bottom-8 right-10 h-px bg-cyan-200/60"></div>
+                                    <div className="absolute left-10 bottom-12 flex gap-2">
+                                        {[...Array(16)].map((_, i) => <span key={i} className="block w-2 bg-cyan-400/35" style={{height: `${10 + (i % 5) * 8}px`}} />)}
+                                    </div>
+                                    <div className="absolute right-8 bottom-8 text-[10px] tracking-[.28em] text-slate-500">EYE CARE MONITOR</div>
+                                </div>
+                                <h1 className="absolute left-0 top-1/2 -translate-y-1/2 text-4xl sm:text-5xl lg:text-6xl font-light text-slate-900 tracking-tight whitespace-nowrap drop-shadow-sm">
+                                    视力双优
+                                </h1>
+                            </div>
+                            <p className="max-w-xl text-slate-700 text-base sm:text-lg leading-relaxed mb-8">
+                                聚焦青少年视力健康与近视防控，融合光学训练、眼部舒缓与营养干预，提供更适合视力赛道的科学解决方案。
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <a href="#franchise" className="w-fit px-8 py-3.5 border border-blue-600 text-blue-700 text-sm font-medium hover:bg-blue-600 hover:text-white transition-all bg-white/90 shadow-sm">
+                                    获取招商资料
+                                </a>
+                                <a href="#solutions" className="w-fit px-8 py-3.5 border border-slate-300 text-slate-700 text-sm font-medium hover:bg-slate-900 hover:text-white transition-all bg-white/85 shadow-sm">
+                                    了解核心方案
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* 走进衡通 */}
+                <section id="about" className="py-24 bg-gradient-to-b from-white to-slate-50">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="reveal grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div className="order-2 lg:order-1 relative reveal-delay-1">
+                        <div className="absolute inset-0 bg-blue-100 transform -skew-y-3 rounded-3xl -z-10 mt-8 ml-8"></div>
+                        <img 
+                            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80" 
+                            alt="企业大楼" 
+                            className="rounded-3xl shadow-xl w-full object-cover h-[500px]"
+                        />
+                        <div className="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hidden md:block">
+                            <div className="flex items-center gap-4">
+                            <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center">
+                                <Building2 className="w-8 h-8 text-blue-600" />
+                            </div>
+                            <div>
+                                <div className="text-3xl font-bold text-slate-900">30<span className="text-blue-600">+</span></div>
+                                <div className="text-sm text-slate-500 font-medium">年科研沉淀</div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div className="order-1 lg:order-2">
+                        <h2 className="section-kicker text-sm font-bold tracking-wider uppercase mb-4">走进中科</h2>
+                        <h3 className="brand-serif text-3xl md:text-5xl font-black text-slate-950 mb-6">中国科学院的科技结晶</h3>
+                        <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                            上海衡通之家科技有限公司是上海中科衡通生物医学有限公司的全资子公司。源起于1993年5月，由中科院上海生命科学研究院创立的科研实体。
+                        </p>
+                        
+                        <div className="relative pt-4">
+                            <div className="absolute left-[19px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-300 via-blue-200 to-transparent hidden sm:block" />
+                            {[
+                            { year: '1993', title: '中科衡通创立', desc: '中科院上海生命科学研究院创立科研实体，开启科技成果转化之路' },
+                            { year: '1995', title: '中科院科技进步三等奖', desc: '核心技术获国家级科研奖项，奠定行业权威地位' },
+                            { year: '2000', title: '国家二类医疗器械注册', desc: '产品获国家药品监督管理局正式批准，进入医疗级产品序列' },
+                            { year: '2010', title: '国家教委/卫生部双推荐', desc: '系列产品获多部委联合推荐，进入全国中小学推广体系' },
+                            { year: '2018', title: '多项国家发明专利授权', desc: '构建完善知识产权壁垒，拥有多项核心技术专利与注册商标' }
+                            ].map((item, index) => (
+                            <div key={index} className="relative pl-12 pb-8 last:pb-0">
+                                <div className="absolute left-0 w-10 h-10 rounded-full bg-white border-2 border-blue-200 flex items-center justify-center z-10 shadow-sm">
+                                    <span className="text-xs font-bold text-blue-600">{item.year}</span>
+                                </div>
+                                <h4 className="text-base font-bold text-slate-900 mb-1">{item.title}</h4>
+                                <p className="text-sm text-slate-500">{item.desc}</p>
+                            </div>
+                            ))}
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+
+                {/* 专家团队 */}
+                <section id="team" className="py-24 bg-slate-50">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-sm font-bold tracking-wider text-blue-600 uppercase mb-3">专家团队</h2>
+                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">国家级科研领军阵容</h3>
+                        <p className="text-slate-600 text-lg">汇聚中科院及国内外顶尖医学、视觉、基因工程领域泰斗，以不可复制的科研实力为品牌护航。</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {teamMembers.map((member, index) => (
+                        <div key={index} className={`reveal reveal-delay-${index + 1} premium-card rounded-[1.75rem] overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group`}>
+                            <div className="h-72 bg-gradient-to-b from-slate-100 to-slate-200 relative overflow-hidden flex items-center justify-center">
+                            {member.image ? (
+                                <img src={member.image} alt={member.name} className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                            ) : (
+                                <div className="text-slate-400 text-sm">暂无照片</div>
+                            )}
+                            </div>
+                            <div className="p-6">
+                            <h4 className="text-xl font-bold text-slate-900 mb-1">{member.name}</h4>
+                            <p className="text-sm font-semibold text-blue-600 mb-3">{member.title}</p>
+                            <p className="text-slate-600 text-sm leading-relaxed">{member.desc}</p>
+                            </div>
+                        </div>
+                        ))}
+                    </div>
+                    </div>
+                </section>
+
+                {/* 高管团队 */}
+                <section id="executives" className="py-24 bg-gradient-to-b from-slate-50 to-white">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-sm font-bold tracking-wider text-blue-600 uppercase mb-3">高管团队</h2>
+                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">实力派经营管理阵容</h3>
+                        <p className="text-slate-600 text-lg">汇聚医疗健康、互联网营销、世界500强管理等多领域资深人士，为品牌持续发展提供坚实保障。</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {executives.map((exec, index) => (
+                        <div key={index} className={`reveal reveal-delay-${index + 1} premium-card rounded-[1.75rem] overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 group`}>
+                            <div className="flex items-center gap-5 p-6">
+                            <div className="w-20 h-20 bg-white rounded-2xl shadow-sm flex items-center justify-center flex-shrink-0 overflow-hidden border border-slate-100">
+                                {exec.image ? (
+                                    <img src={exec.image} alt={exec.name} className="w-full h-full object-cover" loading="lazy" />
+                                ) : (
+                                    <span className="text-2xl font-bold text-slate-300">{exec.name[0]}</span>
+                                )}
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-bold text-slate-900">{exec.name}</h4>
+                                <p className="text-sm font-semibold text-blue-600 mb-2">{exec.title}</p>
+                            </div>
+                            </div>
+                            <p className="text-slate-600 text-sm leading-relaxed px-6 pb-6">{exec.desc}</p>
+                        </div>
+                        ))}
+                    </div>
+                    </div>
+                </section>
+
+                {/* 荣誉资质 */}
+                <section id="honors" className="py-24 bg-white">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-sm font-bold tracking-wider text-blue-600 uppercase mb-3">荣誉资质</h2>
+                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">中科医学荣誉墙</h3>
+                        <p className="text-slate-600 text-lg">近30年科研沉淀，多项国家级荣誉认证，硬核技术壁垒不容复制。点击证书可查看大图。</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {honors.map((h, index) => (
+                        <div key={index} className="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer" onClick={() => setSelectedHonor(h)}>
+                            <div className="relative h-64 bg-gradient-to-br from-slate-100 to-slate-50 flex items-center justify-center p-6 overflow-hidden">
+                                {h.image ? (
+                                    <img src={h.image} alt={h.title} className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-lg" loading="lazy" />
+                                ) : (
+                                    <div className="text-slate-400 text-center">
+                                        <Award className="w-12 h-12 mx-auto mb-2 text-slate-300" />
+                                        <span className="text-sm">证书图片准备中</span>
+                                    </div>
+                                )}
+                                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <div className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="p-5">
+                                <div className="text-xs font-bold text-blue-600 mb-2">{h.year}</div>
+                                <h4 className="text-base font-bold text-slate-900 mb-1">{h.title}</h4>
+                                <p className="text-sm text-slate-500">{h.desc}</p>
+                            </div>
+                        </div>
+                        ))}
+                    </div>
+                    </div>
+                </section>
+
+                {/* 证书大图弹窗 */}
+                {selectedHonor && (
+                    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4" onClick={() => setSelectedHonor(null)}>
+                        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+                        <div className="relative z-10 max-w-3xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
+                            <div className="flex items-center justify-between p-5 border-b border-slate-100">
+                                <div>
+                                    <div className="text-xs font-bold text-blue-600 mb-1">{selectedHonor.year}</div>
+                                    <h3 className="text-lg font-bold text-slate-900">{selectedHonor.title}</h3>
+                                </div>
+                                <button onClick={() => setSelectedHonor(null)} className="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center flex-shrink-0 transition-colors">
+                                    <X className="w-5 h-5" />
+                                </button>
+                            </div>
+                            <div className="p-8 flex items-center justify-center bg-slate-50">
+                                {selectedHonor.image ? (
+                                    <img src={selectedHonor.image} alt={selectedHonor.title} className="max-h-[65vh] max-w-full object-contain" />
+                                ) : (
+                                    <div className="py-20 text-slate-400 text-center">
+                                        <Award className="w-16 h-16 mx-auto mb-3 text-slate-300" />
+                                        <p>证书图片准备中，请稍后查看</p>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* 市场机会 */}
+                <section className="py-24 bg-gradient-to-br from-blue-600 to-blue-800 text-white overflow-hidden relative">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6">双千亿蓝海，“视高同源”新风口</h2>
+                        <p className="text-blue-200 text-lg">打破传统单赛道壁垒，科学研究揭示：生长发育迟缓与眼部发育滞后高度正相关。</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div className="bg-white/10 backdrop-blur-xl rounded-[2rem] p-8 border border-white/20 hover:bg-white/16 hover:-translate-y-1 transition-all duration-500 shadow-2xl shadow-black/10">
+                        <div className="flex items-center gap-4 mb-6">
+                            <Eye className="w-10 h-10 text-blue-300" />
+                            <h3 className="text-2xl font-bold">视力健康告急</h3>
+                        </div>
+                        <div className="space-y-6">
+                            <div>
+                            <div className="text-4xl font-bold text-white mb-2">52.7% <span className="text-lg text-blue-200 font-normal">总体近视率</span></div>
+                            <p className="text-blue-100 text-sm">高中生近视率已突破81%，低龄化与重度化加剧，高度近视人群突破10%。</p>
+                            </div>
+                            <div className="border-t border-white/10 pt-6">
+                            <div className="text-2xl font-bold text-white mb-2">1200亿 <span className="text-lg text-blue-200 font-normal">预估市场规模(2030年)</span></div>
+                            <p className="text-blue-100 text-sm">传统眼镜与按摩仪仅能缓解，市场亟需中科院级别的安全、根治创新方案。</p>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div className="bg-white/10 backdrop-blur-xl rounded-[2rem] p-8 border border-white/20 hover:bg-white/16 hover:-translate-y-1 transition-all duration-500 shadow-2xl shadow-black/10">
+                        <div className="flex items-center gap-4 mb-6">
+                            <TrendingUp className="w-10 h-10 text-emerald-300" />
+                            <h3 className="text-2xl font-bold">身高发育焦虑</h3>
+                        </div>
+                        <div className="space-y-6">
+                            <div>
+                            <div className="text-4xl font-bold text-white mb-2">90%+ <span className="text-lg text-blue-200 font-normal">家长极度关注</span></div>
+                            <p className="text-blue-100 text-sm">超36%家长愿意为此高额付费，青春期启动提前，干预时间紧迫（专属窗口期）。</p>
+                            </div>
+                            <div className="border-t border-white/10 pt-6">
+                            <div className="text-2xl font-bold text-white mb-2">548亿 <span className="text-lg text-blue-200 font-normal">保健品市场规模(2025年)</span></div>
+                            <p className="text-blue-100 text-sm">年复合增长率超12.5%。“口服HGH激活技术”等新一代科学方案正成为爆发增长点。</p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+
+                {/* 视高科研数据 */}
+                <section className="py-24 bg-gradient-to-b from-white to-slate-50">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-sm font-bold tracking-wider text-blue-600 uppercase mb-3">科研支撑</h2>
+                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">视高同源 · 学术证据链</h3>
+                        <p className="text-slate-600 text-lg">多项国内外权威学术研究证实：视力发育与身高增长高度正相关，协同干预效果显著优于单一方案。</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+                            <div className="text-5xl font-bold text-blue-600 mb-4">82.6%</div>
+                            <h4 className="text-lg font-bold text-slate-900 mb-2">视高同步发育滞后率</h4>
+                            <p className="text-slate-600 text-sm leading-relaxed">2023年发表于《中国眼科杂志》的研究，追踪512名7-10岁儿童3年。数据显示身高增长低于年均5cm的儿童中，82.6%同时伴随视力发育异常，眼轴增长速度显著快于正常身高组。</p>
+                            <p className="text-xs text-slate-400 mt-3">来源：中国眼科杂志, 2023</p>
+                        </div>
+                        <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+                            <div className="text-5xl font-bold text-blue-600 mb-4">1,623人</div>
+                            <h4 className="text-lg font-bold text-slate-900 mb-2">大样本实证：身高与视力显著相关</h4>
+                            <p className="text-slate-600 text-sm leading-relaxed">2024年《中华预防医学杂志》与Front Med联合发表，对1623名小学生队列分析。结果表明身高增长迟缓与近视加深呈显著负相关，提出"身高+视力"联合监测对儿童健康管理至关重要。</p>
+                            <p className="text-xs text-slate-400 mt-3">来源：中华预防医学杂志 / Front Med, 2024</p>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100">
+                            <div className="text-3xl font-bold text-blue-600 mb-2">5年追踪</div>
+                            <h4 className="font-bold text-slate-900 mb-2">欧洲多中心研究</h4>
+                            <p className="text-slate-600 text-sm">2026年《European Journal of Pediatrics》发表5年纵向研究，确认生长发育与眼部结构变化存在内在关联，为"视高协同干预"提供国际学术支持。</p>
+                        </div>
+                        <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-6 border border-green-100">
+                            <div className="text-3xl font-bold text-green-600 mb-2">1,021人</div>
+                            <h4 className="font-bold text-slate-900 mb-2">屈光不正与身高发育</h4>
+                            <p className="text-slate-600 text-sm">2025年《Frontiers in Pediatrics》研究表明近视儿童身高体重均值低于正常视力儿童，身高发育异常程度与近视发病率呈正相关。</p>
+                        </div>
+                        <div className="bg-gradient-to-br from-indigo-50 to-white rounded-2xl p-6 border border-indigo-100">
+                            <div className="text-3xl font-bold text-indigo-600 mb-2">四维协同</div>
+                            <h4 className="font-bold text-slate-900 mb-2">视高双优理论体系</h4>
+                            <p className="text-slate-600 text-sm">作息、营养、运动、习惯四大维度的科学管理可同步促进视力保护与身高发育，实现"一次投入、双重收益"的健康管理模式。</p>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+
+                {/* 产品矩阵 */}
+                <section id="solutions" className="py-24 bg-white">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-sm font-bold tracking-wider text-blue-600 uppercase mb-3">核心方案矩阵</h2>
+                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">全方位健康解决方案</h3>
+                        <p className="text-slate-600 text-lg">融合智能硬件、生物医药与运动干预，形成“仪器+营养+运动”的立体闭环。</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {products.map((prod, idx) => (
+                        <div key={idx} className={`reveal reveal-delay-${(idx % 3) + 1} premium-card rounded-[1.75rem] hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 p-8 flex flex-col h-full overflow-hidden group`}>
+                            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity transform group-hover:scale-110 duration-500">
+                            {prod.icon}
+                            </div>
+                            <div className="mb-6">{prod.icon}</div>
+                            <h4 className="text-xl font-bold text-slate-900 mb-2">{prod.name}</h4>
+                            <div className="text-2xl font-bold text-blue-600 mb-6">{prod.price}</div>
+                            <ul className="space-y-3 mb-8 flex-grow">
+                            {prod.features.map((feature, fIdx) => (
+                                <li key={fIdx} className="flex items-start gap-2">
+                                <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                                <span className="text-slate-600 text-sm">{feature}</span>
+                                </li>
+                            ))}
+                            </ul>
+                            <button onClick={() => setSelectedProduct(prod)} className="w-full py-3 bg-slate-50 hover:bg-blue-50 text-blue-600 font-semibold rounded-xl transition-colors border border-slate-200">
+                            了解详情
+                            </button>
+                        </div>
+                        ))}
+                    </div>
+                    </div>
+                </section>
+
+                {/* 招商加盟流程图 */}
+                <section className="py-24 bg-slate-50">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-sm font-bold tracking-wider text-blue-600 uppercase mb-3">加盟流程</h2>
+                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">8步开启财富之旅</h3>
+                        <p className="text-slate-600 text-lg">标准化加盟流程，全程专业指导，从咨询到开业约30-45天。</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {franchiseSteps.map((step, index) => (
+                        <div key={index} className={`reveal reveal-delay-${(index % 4) + 1} premium-card rounded-[1.5rem] p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group`}>
+                            <div className="absolute -top-3 -left-3 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
+                                {step.step}
+                            </div>
+                            <div className="text-4xl mb-4 mt-2">{step.icon}</div>
+                            <h4 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h4>
+                            <p className="text-sm text-slate-600 mb-3">{step.desc}</p>
+                            <div className="inline-block px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium">
+                                {step.duration}
+                            </div>
+                            {index < franchiseSteps.length - 1 && (
+                                <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-slate-300">
+                                    <ChevronRight className="w-6 h-6" />
+                                </div>
+                            )}
+                        </div>
+                        ))}
+                    </div>
+
+                    <div className="text-center mt-12">
+                        <a href="#franchise" className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                            立即开始 <ArrowRight className="w-5 h-5" />
+                        </a>
+                    </div>
+                    </div>
+                </section>
+
+                {/* 招商加盟 */}
+                <section id="franchise" className="py-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+                    <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[800px] h-[800px] bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+                    
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="flex flex-col lg:flex-row gap-16 items-center">
+                        <div className="lg:w-1/2">
+                        <h2 className="text-sm font-bold tracking-wider text-blue-600 uppercase mb-3">招商加盟</h2>
+                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">一店双盈模式，<br/>开启财富新蓝图</h3>
+                        <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+                            一次投入、一套运营团队，即可同时开展【视力训练】与【身高管理】两大核心刚需业务，实现单店收入成倍增长。客户群体高度重合，交叉转化率极高。
+                        </p>
+                        
+                        <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 mb-8">
+                            <div className="grid grid-cols-2 gap-6">
+                            <div>
+                                <div className="text-sm text-slate-500 mb-1">单店启动资金预估</div>
+                                <div className="text-2xl font-bold text-slate-900">25万 - 50万</div>
+                            </div>
+                            <div>
+                                <div className="text-sm text-slate-500 mb-1">平均回本周期</div>
+                                <div className="text-2xl font-bold text-slate-900">6 - 10<span className="text-lg">个月</span></div>
+                            </div>
+                            <div className="col-span-2 border-t border-slate-200 pt-4">
+                                <div className="text-sm text-slate-500 mb-1">成熟门店预期年净利润</div>
+                                <div className="text-2xl font-bold text-blue-600">50万 - 100万+</div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {[
+                            { title: '品牌背书', desc: '中科院强力信任背书' },
+                            { title: '整店输出', desc: '选址/装修/SOP全包' },
+                            { title: '全域获客', desc: '美团/抖音云连锁引流' },
+                            { title: 'AI系统', desc: 'SaaS管理与骨龄AI测算' }
+                            ].map((item, idx) => (
+                            <div key={idx} className="flex items-center gap-3">
+                                <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                                <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                                </div>
+                                <div>
+                                <div className="font-bold text-slate-900 text-sm">{item.title}</div>
+                                <div className="text-xs text-slate-500">{item.desc}</div>
+                                </div>
+                            </div>
+                            ))}
+                        </div>
+                        </div>
+
+                        <div className="lg:w-1/2 w-full">
+                        <div className="premium-card rounded-[2rem] shadow-2xl p-8">
+                            <h4 className="text-2xl font-bold text-slate-900 mb-6 text-center">索取招商资料手册</h4>
+                            <form className="space-y-5" onSubmit={handleSubmit}>
+                            <div>
+                                <label className="block text-sm font-medium text-slate-700 mb-1">您的姓名</label>
+                                <input required type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" placeholder="请输入姓名" />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-slate-700 mb-1">联系电话</label>
+                                <input required type="tel" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" placeholder="请输入手机号码" />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-slate-700 mb-1">意向加盟城市</label>
+                                <input required type="text" value={formData.city} onChange={e => setFormData({...formData, city: e.target.value})} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" placeholder="如：上海市" />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-slate-700 mb-1">验证码</label>
+                                <div className="flex gap-3">
+                                    <input 
+                                        required 
+                                        type="text" 
+                                        value={captcha.input} 
+                                        onChange={e => setCaptcha(prev => ({ ...prev, input: e.target.value.replace(/\D/g, '') }))} 
+                                        className="flex-1 px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all" 
+                                        placeholder="请输入计算结果" 
+                                        maxLength="3"
+                                    />
+                                    <button 
+                                        type="button"
+                                        onClick={generateCaptcha}
+                                        className="px-5 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl font-bold text-sm hover:from-blue-600 hover:to-blue-700 transition-all whitespace-nowrap"
+                                    >
+                                        {captcha.question}
+                                    </button>
+                                </div>
+                                <p className="text-xs text-slate-400 mt-1">点击蓝色按钮可刷新题目</p>
+                            </div>
+
+                            {/* 提交状态反馈 */}
+                            {formStatus.message && (
+                                <div className={`p-4 rounded-xl text-sm font-medium ${
+                                    formStatus.type === 'success' ? 'bg-green-50 text-green-700 border border-green-200' :
+                                    formStatus.type === 'error' ? 'bg-red-50 text-red-700 border border-red-200' :
+                                    'bg-blue-50 text-blue-700 border border-blue-200'
+                                }`}>
+                                    {formStatus.message}
+                                </div>
+                            )}
+
+                            <button type="submit" disabled={formStatus.type === 'loading'} className="w-full py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl font-bold text-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all shadow-lg shadow-blue-600/30 disabled:opacity-50 disabled:cursor-not-allowed">
+                                {formStatus.type === 'loading' ? '提交中...' : '立即免费获取详细方案'}
+                            </button>
+                            <p className="text-xs text-center text-slate-500 mt-4">
+                                提交即代表您同意我们的隐私政策，招商专员将在24小时内与您联系。
+                            </p>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+
+                {/* 移动端悬浮CTA */}
+                <div className={`fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 lg:hidden transition-transform duration-300 ${scrolled ? 'translate-y-0' : 'translate-y-full'}`}>
+                    <a href="#franchise" className="flex items-center justify-center gap-2 w-full py-3.5 bg-blue-600 text-white rounded-xl font-bold text-base pulse-cta">
+                        立即获取招商资料 <ArrowRight className="w-5 h-5" />
+                    </a>
+                </div>
+
+                {/* 桌面端悬浮联系方式 */}
+                <div className={`hidden lg:flex fixed right-5 top-1/2 -translate-y-1/2 z-40 flex-col gap-3 transition-all duration-300 ${scrolled ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10 pointer-events-none'}`}>
+                    <a href="tel:021-34622630" className="w-14 h-14 bg-white border border-slate-200 rounded-full shadow-lg flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all group relative" title="拨打电话">
+                        <PhoneCall className="w-6 h-6" />
+                        <span className="absolute right-full mr-3 px-3 py-1.5 bg-slate-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">021-34622630</span>
+                    </a>
+                    <div className="w-14 h-14 bg-white border border-slate-200 rounded-full shadow-lg flex items-center justify-center text-green-600 hover:bg-green-600 hover:text-white hover:border-green-600 transition-all group relative cursor-pointer" title="微信咨询">
+                        <Wechat className="w-7 h-7" />
+                        <div className="absolute right-full mr-3 p-4 bg-white rounded-xl shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto">
+                            <div className="w-32 h-32 bg-slate-100 rounded-lg flex items-center justify-center text-xs text-slate-400 mb-2">
+                                微信二维码
+                            </div>
+                            <p className="text-xs text-slate-600 text-center font-medium">扫码添加微信</p>
+                        </div>
+                    </div>
+                    <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="w-14 h-14 bg-white border border-slate-200 rounded-full shadow-lg flex items-center justify-center text-slate-500 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all" title="返回顶部">
+                        <ArrowUp className="w-6 h-6" />
+                    </button>
+                </div>
+
+                {/* 移动端返回顶部 */}
+                <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`fixed right-5 bottom-20 lg:bottom-8 z-40 w-11 h-11 bg-white border border-slate-200 rounded-full shadow-lg flex items-center justify-center text-slate-500 hover:text-blue-600 hover:border-blue-200 transition-all lg:hidden ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
+                    <ArrowUp className="w-5 h-5" />
+                </button>
+
+                {/* 提交成功弹窗 */}
+                {showSuccessModal && (
+                    <div className="fixed inset-0 z-[80] flex items-center justify-center p-4">
+                        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setShowSuccessModal(false)} />
+                        <div className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 z-10 text-center">
+                            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <CheckCircle2 className="w-10 h-10 text-green-600" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-slate-900 mb-3">提交成功！</h3>
+                            <p className="text-slate-600 mb-6">感谢您的关注，我们的招商专员将在24小时内与您联系，请保持电话畅通。</p>
+                            <div className="bg-blue-50 rounded-xl p-4 mb-6">
+                                <p className="text-sm text-blue-800 font-medium">如需立即咨询，请拨打：</p>
+                                <a href="tel:021-34622630" className="text-xl font-bold text-blue-600 hover:text-blue-700">021-34622630</a>
+                            </div>
+                            <button onClick={() => setShowSuccessModal(false)} className="w-full py-3.5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors">
+                                我知道了
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {/* FAQ 常见问题 */}
+                <section className="py-24 bg-white">
+                    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-sm font-bold tracking-wider text-blue-600 uppercase mb-3">常见问题</h2>
+                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">FAQ</h3>
+                        <p className="text-slate-600 text-lg">关于加盟中科之家，您可能想了解的问题都在这里。</p>
+                    </div>
+
+                    <div className="space-y-4">
+                        {faqs.map((faq, index) => (
+                        <div key={index} className="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+                            <button 
+                                onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                                className="w-full flex items-center justify-between p-6 text-left"
+                            >
+                                <span className="font-bold text-slate-900 pr-4">{faq.question}</span>
+                                <svg 
+                                    className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-300 ${openFaqIndex === index ? 'rotate-180' : ''}`} 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    viewBox="0 0 24 24" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    strokeWidth="2"
+                                >
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </button>
+                            {openFaqIndex === index && (
+                                <div className="px-6 pb-6 pt-0">
+                                    <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
+                                </div>
+                            )}
+                        </div>
+                        ))}
+                    </div>
+
+                    <div className="text-center mt-12">
+                        <p className="text-slate-600 mb-4">还有其他问题？</p>
+                        <a href="#franchise" className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-all">
+                            联系我们 <ArrowRight className="w-4 h-4" />
+                        </a>
+                    </div>
+                    </div>
+                </section>
+
+                {/* 底部信息 */}
+                <footer className="bg-slate-950 text-slate-300 py-16 border-t border-slate-900">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                        <div className="lg:col-span-2">
+                        <div className="flex items-center gap-2 mb-6">
+                            <img src="/images/qiye.png" alt="中科之家" className="h-10 w-10 object-contain" />
+                            <span className="text-2xl font-bold text-white tracking-tight">中科之家</span>
+                        </div>
+                        <p className="text-slate-400 leading-relaxed mb-8 max-w-md">
+                            源自中国科学院的科技力量。我们致力于以科技创新为驱动，为全人类的视力健康与青少年生长发育提供顶尖的物理与营养解决方案。
+                        </p>
+                        <div className="flex space-x-4">
+                            <div className="w-24 h-24 bg-white p-2 rounded-lg flex flex-col items-center justify-center gap-1">
+                            <div className="text-[10px] text-slate-600 font-bold text-center">官方公众号</div>
+                            <div className="w-16 h-16 bg-slate-200 rounded flex items-center justify-center text-xs text-slate-400">
+                                [二维码]
+                            </div>
+                            </div>
+                            <div className="w-24 h-24 bg-white p-2 rounded-lg flex flex-col items-center justify-center gap-1">
+                            <div className="text-[10px] text-slate-600 font-bold text-center">企业微信</div>
+                            <div className="w-16 h-16 bg-slate-200 rounded flex items-center justify-center text-xs text-slate-400">
+                                [二维码]
+                            </div>
+                            </div>
+                        </div>
+                        <div className="flex space-x-3 mt-6">
+                            <a href="#" className="w-10 h-10 bg-slate-800 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors" title="抖音">
+                                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                            </a>
+                            <a href="#" className="w-10 h-10 bg-slate-800 hover:bg-red-500 rounded-full flex items-center justify-center transition-colors" title="小红书">
+                                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.21-.08-.07-.19-.05-.28-.03-.12.03-2.04 1.3-5.78 3.82-.54.37-1.03.55-1.47.54-.48-.01-1.41-.27-2.1-.5-.85-.28-1.52-.43-1.46-.9.03-.25.38-.5 1.04-.76 4.09-1.78 6.82-2.96 8.19-3.53 3.9-1.62 4.71-1.9 5.24-1.91.12 0 .37.03.54.17.14.12.18.28.2.45-.01.06.01.24 0 .38z"/></svg>
+                            </a>
+                            <a href="#" className="w-10 h-10 bg-slate-800 hover:bg-blue-500 rounded-full flex items-center justify-center transition-colors" title="微博">
+                                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M10.09 18.78c-4.52.45-8.36-1.6-8.57-4.56-.21-2.96 3.27-5.94 7.79-6.39 4.52-.45 8.36 1.6 8.57 4.56.21 2.96-3.27 5.94-7.79 6.39zm4.52-8.24c-.24-1.73-1.76-2.94-3.4-2.7-1.64.24-2.78 1.83-2.54 3.56.24 1.73 1.76 2.94 3.4 2.7 1.64-.24 2.78-1.83 2.54-3.56zM20.1 9.16c-.18-.54-.78-.84-1.32-.66-.54.18-.84.78-.66 1.32.54 1.62.36 3.42-.54 4.86-.9 1.44-2.46 2.34-4.14 2.52-.18.02-.36.03-.54.03-1.5 0-2.94-.66-3.96-1.8-.18-.2-.16-.5.04-.68.2-.18.5-.16.68.04.84.94 2.04 1.44 3.3 1.44.15 0 .3 0 .45-.02 1.38-.15 2.64-.87 3.36-2.04.72-1.17.87-2.64.42-3.96-.18-.54-.78-.84-1.32-.66-.54.18-.84.78-.66 1.32.3.9.18 1.92-.36 2.76-.54.84-1.44 1.38-2.46 1.5-.12.01-.24.02-.36.02-1.02 0-1.98-.42-2.64-1.14-.18-.2-.16-.5.04-.68.2-.18.5-.16.68.04.48.54 1.14.84 1.86.84.09 0 .18 0 .27-.01.72-.08 1.38-.48 1.74-1.08.36-.6.42-1.32.18-1.98z"/></svg>
+                            </a>
+                            <a href="#" className="w-10 h-10 bg-slate-800 hover:bg-green-600 rounded-full flex items-center justify-center transition-colors" title="微信">
+                                <Wechat className="w-5 h-5" />
+                            </a>
+                        </div>
+                        </div>
+                        
+                        <div>
+                        <h4 className="text-white font-bold mb-6 text-lg">快速链接</h4>
+                        <ul className="space-y-4">
+                            {navLinks.map(link => (
+                            <li key={link.name}>
+                                <a href={link.href} className="hover:text-blue-400 transition-colors flex items-center gap-2">
+                                <ChevronRight className="w-4 h-4" /> {link.name}
+                                </a>
+                            </li>
+                            ))}
+                        </ul>
+                        </div>
+
+                        <div>
+                        <h4 className="text-white font-bold mb-6 text-lg">联系我们</h4>
+                        <ul className="space-y-4">
+                            <li className="flex items-start gap-3">
+                            <MapPin className="w-5 h-5 text-blue-500 flex-shrink-0 mt-1" />
+                            <span>上海市徐汇区漕溪北路18号<br/>上海实业大厦8层8C室</span>
+                            </li>
+                            <li className="flex items-center gap-3">
+                            <Phone className="w-5 h-5 text-blue-500 flex-shrink-0" />
+                            <div>
+                                <div>021-34622630</div>
+                                <div>021-62884089</div>
+                            </div>
+                            </li>
+                            <li className="flex items-center gap-3">
+                            <Mail className="w-5 h-5 text-blue-500 flex-shrink-0" />
+                            <span>business@hengtong.com</span>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                    
+                    <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p className="text-sm text-slate-500">
+                        © 2026 上海衡通之家科技有限公司. 保留所有权利.
+                        </p>
+                        <div className="text-sm text-slate-500 flex space-x-4">
+                        <a href="/privacy.html" className="hover:text-white" rel="noopener">隐私政策</a>
+                        <a href="/terms.html" className="hover:text-white" rel="noopener">服务条款</a>
+                        <a href="https://beian.miit.gov.cn/" className="hover:text-white" target="_blank" rel="noopener">沪ICP备xxxxxxxx号</a>
+                        </div>
+                    </div>
+                    </div>
+                </footer>
+
+                {/* 产品详情弹窗 */}
+                {selectedProduct && (
+                    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4" onClick={() => setSelectedProduct(null)}>
+                        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+                        <div className="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 z-10" onClick={e => e.stopPropagation()}>
+                            <div className="flex items-start justify-between mb-6">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center">
+                                        {selectedProduct.icon}
+                                    </div>
+                                    <div>
+                                        <h3 className="text-2xl font-bold text-slate-900">{selectedProduct.name}</h3>
+                                        <p className="text-2xl font-bold text-blue-600 mt-1">{selectedProduct.price}</p>
+                                    </div>
+                                </div>
+                                <button onClick={() => setSelectedProduct(null)} className="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center flex-shrink-0 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                </button>
+                            </div>
+
+                            <div className="mb-6">
+                                <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">产品详情</h4>
+                                <p className="text-slate-600 leading-relaxed">{selectedProduct.detail}</p>
+                            </div>
+
+                            <div className="mb-6">
+                                <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">适用人群</h4>
+                                <p className="text-slate-600">{selectedProduct.suitable}</p>
+                            </div>
+
+                            <div className="mb-6">
+                                <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">技术规格</h4>
+                                <div className="flex flex-wrap gap-2">
+                                    {selectedProduct.specs.map((spec, i) => (
+                                        <span key={i} className="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-600">{spec}</span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="border-t border-slate-100 pt-6">
+                                <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">核心卖点</h4>
+                                <ul className="space-y-2">
+                                    {selectedProduct.features.map((f, i) => (
+                                        <li key={i} className="flex items-center gap-3 text-slate-600">
+                                            <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
+                                            <span>{f}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <div className="mt-8 pt-6 border-t border-slate-100">
+                                <a href="#franchise" onClick={() => setSelectedProduct(null)} className="block w-full py-3.5 bg-blue-600 text-white rounded-xl font-bold text-center hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20">
+                                    咨询加盟 · 获取详细报价
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                </div>
+            );
+        };
+
+        // -----------------------------------------------------
+        // 3. 渲染应用
+        // -----------------------------------------------------
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
